@@ -13,6 +13,7 @@ import java.util.List;
  * @description:
  */
 public interface ITypeDao extends JpaRepository<Type,Integer> {
+
     @Modifying
     @Query("update type set type_name=?1 where  type_id=?2")
     void updateType(String  name, Integer id);
