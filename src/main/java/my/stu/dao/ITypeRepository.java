@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+
 
 /**
  * @author: Jean
@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Repository
 public interface ITypeRepository extends JpaRepository<Type,Integer> {
-    @Select("select * from type where type_id=?1")
+    @Query(value = "select * from type where type_id=?1",nativeQuery = true)
     Type findByType_id(int id);
 
     @Modifying
